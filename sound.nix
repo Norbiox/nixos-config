@@ -14,6 +14,7 @@
   # Install utilities
   environment.systemPackages = with pkgs; [
     pavucontrol
+    pulseaudio  # for having 'pactl' program
   ];
 
   # Configure wireplumber
