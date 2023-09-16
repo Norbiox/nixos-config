@@ -9,12 +9,15 @@
 
   # User specific packages
   home.packages = with pkgs; [
+    alacritty
+    bashInteractive
     brave
     kitty
     neovim-unwrapped
   ];
 
   # Raw config files
+  home.file.".config/alacritty".source = ./dotfiles/.config/alacritty;
   home.file.".config/kitty".source = ./dotfiles/.config/kitty;
 
   # GIT configuration
@@ -37,7 +40,7 @@
 
     config = rec {
       modifier = "Mod4";
-      terminal = "kitty";
+      terminal = "alacritty";
 
       fonts = {
         names = [ "Victor Mono" ];
@@ -70,5 +73,16 @@
       bindsym XF86AudioLowerVolume exec 'pactl set-sink-volume @DEFAULT_SINK@ -1%'
       bindsym XF86AudioMute exec 'pactl set-sink-mute @DEFAULT_SINK@ toggle
     '';
+  };
+
+  # Bash
+  programs.bash = {
+    enable = true;
+  };
+  programs.fzf.enable = true;
+  programs.zoxide.enable = true;
+  programs.direnv = {
+    enable = true;
+    nix-direnv.enable = true;
   };
 }

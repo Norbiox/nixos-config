@@ -42,6 +42,7 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
+    alacritty
     appimage-run
     git
     vim
@@ -91,5 +92,15 @@
     powerline-fonts
     nerdfonts
   ];
+
+  # Enable XDG
+  xdg.portal = {
+    enable = true;
+    wlr.enable = true;
+    extraPortals = with pkgs; [
+      xdg-desktop-portal-gtk
+      xdg-desktop-portal-wlr
+    ];
+  };
 }
 
