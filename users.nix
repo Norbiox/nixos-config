@@ -5,7 +5,7 @@
     isNormalUser = true;
     home = "/home/norbert";
     description = "Norbert Chmiel";
-    extraGroups = [ "wheel" "networkmanager" "video" ];
+    extraGroups = [ "wheel" "networkmanager" "audio" "video" ];
   };
 }
 

@@ -16,6 +16,8 @@
       ./users.nix
       ./gtk.nix
       ./greetd.nix
+      ./sound.nix
+      ./bluetooth.nix
     ];
 
   # Use the GRUB 2 boot loader
@@ -33,10 +35,6 @@
 
   # Enable CUPS to print documents.
   services.printing.enable = true;
-
-  # Enable sound.
-  sound.enable = true;
-  hardware.pulseaudio.enable = true;
 
   # Enable touchpad support
   services.xserver.libinput.enable = true;
