@@ -18,6 +18,7 @@
     neovim-unwrapped
     swayidle
     swaylock
+    swayosd
     waybar
     wdisplays
     wl-clipboard
@@ -26,7 +27,6 @@
   # Raw config files
   home.file.".config/alacritty".source = ./dotfiles/.config/alacritty;
   home.file.".config/kitty".source = ./dotfiles/.config/kitty;
-  home.file.".config/kanshi".source = ./dotfiles/.config/kanshi;
 
   # GIT configuration
   programs.git = {
@@ -92,21 +92,21 @@
         outputs = [
           {
             criteria = "BOE 0x09DE Unknown";
-            position = "5760,1200";
+            position = "5670,1200";
             mode = "1920x1080";
             scale = 1.0;
             transform = "normal";
           }
           {
             criteria = "Dell Inc. DELL U2415 7MT0177R1E2L";
-            position = "3840,0";
+            position = "3750,0";
             mode = "1920x1200";
             scale = 1.0;
             transform = "normal";
           }
           {
             criteria = "Dell Inc. DELL U2415 7MT0187628UL";
-            position = "7680,0";
+            position = "7590,0";
             mode = "1920x1200";
             scale = 1.0;
             transform = "normal";
@@ -132,6 +132,29 @@
       };
     };
   };
+
+  # SwayLock
+  programs.swaylock = {
+    enable = true;
+    settings = {
+      font-size = 24;
+      indicator-idle-visible = false;
+      indicator-radius = 100;
+      show-failed-attempts = true;
+    };
+  };
+
+  # SwayIdle
+  services.swayidle = {
+    enable = true;
+    events = [
+      { event = "before-sleep"; command = "${pkgs.swaylock}/bin/swaylock"; }
+      { event = "lock"; command = "lock"; }
+    ];
+  };
+
+  # SwayOSD
+  services.swayosd.enable = true;
 
   # Bash
   programs.bash = {
