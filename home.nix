@@ -14,8 +14,13 @@
     brave
     kanshi
     kitty
+    mako
     neovim-unwrapped
+    swayidle
+    swaylock
+    waybar
     wdisplays
+    wl-clipboard
   ];
 
   # Raw config files
@@ -78,55 +83,55 @@
     '';
   };
 
-#  # Kanshi
-#  services.kanshi = {
-#    enable = true;
-#    systemdTarget = "kanshi.target";
-#    profiles = {
-#      home = {
-#        outputs = [
-#          {
-#            criteria = "BOE 0x09DE Unknown";
-#            position = "5760,1200";
-#            mode = "1920x1080";
-#            scale = 1.0;
-#            transform = "normal";
-#          }
-#          {
-#            criteria = "Dell Inc. DELL U2415 7MT0177R1E2L";
-#            position = "3840,0";
-#            mode = "1920x1200";
-#            scale = 1.0;
-#            transform = "normal";
-#          }
-#          {
-#            criteria = "Dell Inc. DELL U2415 7MT0187628UL";
-#            position = "7680,0";
-#            mode = "1920x1200";
-#            scale = 1.0;
-#            transform = "normal";
-#          }
-#          {
-#            criteria = "Dell Inc. DELL U2415 7MT016613C3L";
-#            position = "5670,0";
-#            mode = "1920x1200";
-#            scale = 1.0;
-#            transform = "normal";
-#          }
-#        ];
-#    };
-#      undocked = {
-#        outputs = [
-#          {
-#            criteria = "BOE 0x09DE Unknown";
-#            mode = "1920x1080";
-#            scale = 1.0;
-#            transform = "normal";
-#          }
-#        ];
-#      };
-#    };
-#  };
+  # Kanshi
+  services.kanshi = {
+    enable = true;
+    systemdTarget = "sway-session.target";
+    profiles = {
+      home = {
+        outputs = [
+          {
+            criteria = "BOE 0x09DE Unknown";
+            position = "5760,1200";
+            mode = "1920x1080";
+            scale = 1.0;
+            transform = "normal";
+          }
+          {
+            criteria = "Dell Inc. DELL U2415 7MT0177R1E2L";
+            position = "3840,0";
+            mode = "1920x1200";
+            scale = 1.0;
+            transform = "normal";
+          }
+          {
+            criteria = "Dell Inc. DELL U2415 7MT0187628UL";
+            position = "7680,0";
+            mode = "1920x1200";
+            scale = 1.0;
+            transform = "normal";
+          }
+          {
+            criteria = "Dell Inc. DELL U2415 7MT016613C3L";
+            position = "5670,0";
+            mode = "1920x1200";
+            scale = 1.0;
+            transform = "normal";
+          }
+        ];
+    };
+      undocked = {
+        outputs = [
+          {
+            criteria = "BOE 0x09DE Unknown";
+            mode = "1920x1080";
+            scale = 1.0;
+            transform = "normal";
+          }
+        ];
+      };
+    };
+  };
 
   # Bash
   programs.bash = {

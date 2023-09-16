@@ -104,5 +104,10 @@
       xdg-desktop-portal-wlr
     ];
   };
+
+  # Enable login via swaylock
+  security.pam.services.swaylock = {
+    text = "auth include login";
+  };
 }
 
