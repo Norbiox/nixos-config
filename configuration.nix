@@ -45,6 +45,7 @@
     alacritty
     appimage-run
     git
+    jq
     vim
     wget
   ];
@@ -94,6 +95,7 @@
   ];
 
   # Enable XDG
+  services.dbus.enable = true;
   xdg.portal = {
     enable = true;
     wlr.enable = true;
