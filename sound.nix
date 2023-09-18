@@ -1,4 +1,5 @@
 { pkgs, nixpkgs, ... }:
+# Enables sound by pipewire
 
 {
   # Enable sound.

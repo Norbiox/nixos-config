@@ -14,9 +14,7 @@
     [
       ./hardware-configuration.nix
       ./users.nix
-      ./gtk.nix
-      ./greetd.nix
-      ./sound.nix
+      ./sway.nix
       ./bluetooth.nix
     ];
 
@@ -44,8 +42,13 @@
   environment.systemPackages = with pkgs; [
     alacritty
     appimage-run
+    bashInteractive
+    brave
     git
     jq
+    kitty
+    neovim-unwrapped
+    qt5.qtwayland
     vim
     wget
   ];
@@ -104,6 +107,11 @@
       xdg-desktop-portal-wlr
     ];
   };
+
+  # Enable QT
+  qt.enable = true;
+  qt.platformTheme ="gtk2";
+  qt.style = "gtk2";
 
   # Enable login via swaylock
   security.pam.services.swaylock = {
